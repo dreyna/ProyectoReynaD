@@ -6,15 +6,20 @@
 
 package pe.edu.upeu.pruebareyna.config;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author admin-harold.rojas
  */
 public class Conexion {
     private static Connection conex = null;
-    private static String url = "jdbc:mysql://localhost/bd_visitas";
-    private static String usuario = "root";
-    private static String clave = "root";
+    private static final String url = "jdbc:mysql://localhost/bd_visitas";
+    private static final String usuario = "root";
+    private static final String clave = "root";
     
     public static Connection getConexion(){
         try{
@@ -24,8 +29,8 @@ public class Conexion {
             }else{
                 conex = null;
             }
-        }catch(Excepcion e){
-            JOptionPane.showMessage(null, e);
+        }catch(ClassNotFoundException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
         }
         return conex;
         
