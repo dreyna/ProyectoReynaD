@@ -8,6 +8,7 @@ package pe.edu.upeu.pruebareyna.vista;
 
 import java.sql.Connection;
 import javax.swing.JOptionPane;
+import pe.edu.upeu.pruebareyna.DAO.UsuarioDAO;
 import pe.edu.upeu.pruebareyna.config.Conexion;
 
 /**
@@ -15,7 +16,8 @@ import pe.edu.upeu.pruebareyna.config.Conexion;
  * @author admin-harold.rojas
  */
 public class LoginForm extends javax.swing.JFrame {
-
+UsuarioDAO aO = new UsuarioDAO();
+int op;
     /**
      * Creates new form LoginForm
      */
@@ -100,7 +102,16 @@ public class LoginForm extends javax.swing.JFrame {
 //        if(cx != null){
 //            JOptionPane.showMessageDialog(null, "exito");
 //        }
-        
+        String user =  txtusuario.getText();
+        String pass = txtclave.getText();
+        op = aO.validarUsuario(user, pass);
+        if(op == 1){
+            PrincipalForm pf = new PrincipalForm();
+            pf.setVisible(true);            
+                    
+        }else{
+            JOptionPane.showMessageDialog(null, "No se puede conectar");
+        }
     }//GEN-LAST:event_btningresarActionPerformed
 
     /**
