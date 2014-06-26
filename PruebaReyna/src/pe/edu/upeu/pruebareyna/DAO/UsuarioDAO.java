@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import pe.edu.upeu.pruebareyna.config.Conexion;
-
 /**
  *
  * @author admin-harold.rojas
@@ -34,8 +33,7 @@ public class UsuarioDAO {
                 op = 2;
             }
         } catch (SQLException e) {
-        }
-     
+        }    
     return op;
     }
 }
